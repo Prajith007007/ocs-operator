@@ -655,7 +655,7 @@ or if an OSD ID is not found, errors will be generated in the log and no OSDs wo
 	}
 
 	for i, template := range TemplateArray {
-		_, err := controllerutil.CreateOrUpdate(context.TODO(), r.Client, osdCleanUpTemplate, func() error {
+		_, err := controllerutil.CreateOrUpdate(context.TODO(), r.Client, template, func() error {
 			template.Objects = []runtime.RawExtension{
 				{
 					Object: newCephJob(sc, template, Jobcommands[i]),
